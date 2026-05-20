@@ -23,3 +23,21 @@ export const getPokemonDetail = async (idOrName: string) => {
     throw error;
   }
 };
+
+export const getTypes = async () => {
+  try {
+    const response = await axios.get('https://pokeapi.co/api/v2/type');
+    return response.data.results;
+  } catch (error) {
+    throw new Error('Error al cargar los tipos');
+  }
+};
+
+export const getPokemonsByType = async (typeUrl: string) => {
+  try {
+    const response = await axios.get(typeUrl);
+    return response.data.pokemon.map((p: any) => p.pokemon); 
+  } catch (error) {
+    throw new Error('Error al filtrar por tipo');
+  }
+};

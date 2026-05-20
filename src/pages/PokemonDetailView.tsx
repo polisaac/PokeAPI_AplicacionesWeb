@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getPokemonDetail } from '../services/pokemonService';
 import type { PokemonDetail } from '../types/pokemon';
+import '../App.css';
 
 const PokemonDetailView = () => {
   const { id } = useParams();

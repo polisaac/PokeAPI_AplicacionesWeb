@@ -5,8 +5,7 @@ import PokemonDetailView from './pages/PokemonDetailView';
 function App() {
   return (
     <BrowserRouter>
-      {/* Esto se verá en TODAS las páginas */}
-      <header style={{ padding: '20px', background: '#333', color: 'white', textAlign: 'center' }}>
+      <header style={{ padding: '20px', background: '#231c7f', color: 'white', textAlign: 'left' }}>
         <h1>PokeAPI</h1>
       </header>
 

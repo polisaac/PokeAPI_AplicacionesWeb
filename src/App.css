@@ -1,8 +1,9 @@
 /* src/App.css */
 
-/* El botón de volver en el detalle */
+/* ─── Estilos existentes ─────────────────────────────── */
+
 .btn-volver {
-  background-color: #ef5350; /* Rojo Pokédex */
+  background-color: #ef5350;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -13,13 +14,11 @@
   transition: background-color 0.3s ease, transform 0.1s ease;
   margin-bottom: 20px;
 }
-
 .btn-volver:hover {
-  background-color: #d32f2f; /* Rojo más oscuro al pasar el ratón */
-  transform: scale(1.05); /* Se hace un poquito más grande */
+  background-color: #d32f2f;
+  transform: scale(1.05);
 }
 
-/* El contenedor de las estadísticas para que se vea ordenado */
 .stats-container {
   background-color: #f5f5f5;
   border-radius: 12px;
@@ -28,14 +27,210 @@
   margin: 20px auto;
   box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
-
 .stat-item {
   display: flex;
   justify-content: space-between;
   padding: 8px 0;
   border-bottom: 1px solid #e0e0e0;
 }
+.stat-item:last-child { border-bottom: none; }
 
-.stat-item:last-child {
-  border-bottom: none;
+
+/* ─── Comparador ─────────────────────────────────────── */
+
+.comparador-page {
+  padding: 24px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.comparador-titulo {
+  text-align: center;
+  font-size: 2rem;
+  color: #231c7f;
+  margin-bottom: 6px;
+}
+.comparador-subtitulo {
+  text-align: center;
+  color: #666;
+  margin-bottom: 28px;
+}
+
+/* Buscadores */
+.comparador-buscadores {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.comparador-buscador {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 240px;
+}
+.comparador-label {
+  font-weight: bold;
+  color: #231c7f;
+  font-size: 0.95rem;
+}
+.comparador-input-row {
+  display: flex;
+  gap: 8px;
+}
+.comparador-input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+.comparador-input:focus {
+  outline: none;
+  border-color: #231c7f;
+}
+.comparador-btn-buscar {
+  padding: 10px 16px;
+  background: #231c7f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.comparador-btn-buscar:hover:not(:disabled) { background: #1a1560; }
+.comparador-btn-buscar:disabled { opacity: 0.5; cursor: not-allowed; }
+.comparador-error { color: #ef5350; font-size: 0.85rem; }
+
+/* Banner ganador */
+.comparador-ganador {
+  text-align: center;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+.ganador-1, .ganador-2 { background: #fff9c4; color: #5d4037; border: 2px solid #f9a825; }
+.ganador-tie            { background: #e8f5e9; color: #2e7d32; border: 2px solid #43a047; }
+
+/* Layout principal */
+.comparador-contenido {
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  gap: 20px;
+  align-items: start;
+}
+@media (max-width: 700px) {
+  .comparador-contenido { grid-template-columns: 1fr; }
+}
+
+/* Tarjetas */
+.comparador-tarjeta {
+  background: #f9f9f9;
+  border: 2px solid #e0e0e0;
+  border-radius: 14px;
+  padding: 20px 14px;
+  text-align: center;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.tarjeta-ganador {
+  border-color: #f9a825;
+  box-shadow: 0 0 16px rgba(249,168,37,0.35);
+}
+.comparador-sprite { width: 140px; height: 140px; object-fit: contain; }
+.comparador-nombre {
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: #231c7f;
+  margin: 8px 0 2px;
+}
+.comparador-numero { color: #999; font-size: 0.85rem; margin-bottom: 10px; }
+.comparador-tipos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.tipo-badge {
+  padding: 3px 10px;
+  border-radius: 20px;
+  color: white;
+  font-size: 0.78rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.comparador-total { font-size: 0.9rem; color: #444; }
+
+/* Placeholder */
+.comparador-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  color: #bbb;
+}
+.comparador-placeholder span { font-size: 4rem; line-height: 1; }
+.comparador-placeholder p { font-size: 0.9rem; margin-top: 8px; }
+
+/* Stats centrales */
+.comparador-stats { padding: 10px 0; }
+.stats-titulo {
+  text-align: center;
+  color: #231c7f;
+  font-size: 1rem;
+  margin-bottom: 14px;
+}
+.stat-row {
+  display: grid;
+  grid-template-columns: 1fr 100px 1fr;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.stat-nombre-central {
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: bold;
+  color: #555;
+  white-space: nowrap;
+}
+.stat-barra-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.stat-barra-container.izquierda { flex-direction: row-reverse; }
+.stat-barra-container.derecha  { flex-direction: row; }
+.stat-barra-bg {
+  flex: 1;
+  background: #e0e0e0;
+  border-radius: 6px;
+  height: 10px;
+  overflow: hidden;
+}
+.stat-barra-container.izquierda .stat-barra-bg {
+  display: flex;
+  justify-content: flex-end;
+}
+.stat-barra {
+  height: 10px;
+  border-radius: 6px;
+  transition: width 0.5s ease;
+}
+.barra-ganador  { background: #43a047; }
+.barra-empate   { background: #fdd835; }
+.barra-perdedor { background: #ef5350; }
+.stat-valor {
+  font-size: 0.82rem;
+  font-weight: bold;
+  color: #333;
+  min-width: 28px;
+  text-align: center;
 }
